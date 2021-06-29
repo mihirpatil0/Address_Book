@@ -35,7 +35,7 @@ public class AddressBookMain
 		boolean isExit = false;
 	    while (!isExit) 
 	    {
-		    System.out.print("Enter number options:\n1.Add-New Contacts:\n2.Edit Contact:\n3.Delete Contact:\n4.Exit:\n");
+		    System.out.print("Enter number options:\n1.Add-New Contacts:\n2.Edit Contact:\n3.Delete Contact:\n4.Display All Contacts:\n5.Exit:\n");
 			int userInput = scannerObject.nextInt();
 			switch (userInput)
 		    {
@@ -54,7 +54,11 @@ public class AddressBookMain
 			    		//Delete contacts.
 			    		serviceObject.deleteContact();
 				        break;
-			    case 4:
+			    case 4:	
+			    		//Display contacts.
+			    		serviceObject.displayContacts();
+				        break;
+			    case 5:
 			       		//Exit from program.
 			        	isExit = true;
 			        	break;

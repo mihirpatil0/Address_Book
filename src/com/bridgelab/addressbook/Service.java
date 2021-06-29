@@ -231,4 +231,25 @@ public class Service
 			}
 		}
 	}
+	
+	/**
+	 * Name : displayContacts
+	 * 
+	 * Description : Displaying all the contact to user.
+	 * 
+	 * Algorithm : Using for each loop to traverse through array.
+	 * and printing records rows one by one.
+	 * 
+	 * Modification : Fist Commit 29-June-2021
+	 */
+	public void displayContacts()
+	{
+		for(Contacts element : contactArray)
+		{
+			if(element != null)
+			{
+				System.out.println(element);
+			}
+		}
+	}
 }
