@@ -1,7 +1,6 @@
 package com.bridgelab.addressbook;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**************************************************************************
  * @author mihir
@@ -18,10 +17,8 @@ public class AddressBookMain
 {
 	//Scanner object creation.
 	public Scanner scannerObject = new Scanner(System.in);
-	//ArrayList object creation
-	ArrayList<Contacts> contactsArrayList = new ArrayList<Contacts>();
-	//Instantiating Service class object and in constructor passing scanner object.
-	Service serviceObject = new Service(scannerObject);
+	//Creating reference for Service class.
+	Service serviceObject = null;
 	
 	/**
 	 * Name : chooseOption
@@ -36,21 +33,29 @@ public class AddressBookMain
 	public void chooseOption()
 	{
 		boolean isExit = false;
-	    
 	    while (!isExit) 
 	    {
-	      System.out.print("Enter options 1.Add-New Contacts : ");
-		  int userInput = scannerObject.nextInt();
-		  
-	      switch (userInput)
-	      	{
-	        case 1:
-	        		// Add New-Contact details.
-	        		contactsArrayList.add(serviceObject.addNewContact());
-	        		break;
-	        default:
-	        		System.out.println("Please enter valid input");
-			}
+		    System.out.print("Enter options 1.Add-New Contacts, 2.Displya-All Records, 3.Exit. : ");
+			int userInput = scannerObject.nextInt();
+			switch (userInput)
+		    {
+			    case 1:
+			    		// Add New-Contact details.
+			        	System.out.print("\n" + "How many number of records you want to store : ");
+			        	int arraySize = scannerObject.nextInt();
+			        	serviceObject = new Service(arraySize);
+			        	serviceObject.addNewContact();
+			        	break;
+			    case 2:
+				        serviceObject.displayContacts();
+				        break;
+			    case 3:
+			       		//Exit from program.
+			        	isExit = true;
+			        	break;
+			    default:
+			        	System.out.println("Please enter valid input");
+		    }
 		}
 	}
 	
