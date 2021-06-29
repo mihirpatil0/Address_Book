@@ -205,4 +205,30 @@ public class Service
 					System.out.println("Incorrect Entry !");
 		}
 	}
+	
+	/**
+	 * Name : deleteContact
+	 * 
+	 * Description : Deleting contact as per user input.
+	 * 
+	 * Algorithm : Taking mobile number because it will be unique to delete associated contact.
+	 * Iterating over array to get the exact match record once we get it making that record as null.
+	 * Which is considered to be deleted.
+	 * 
+	 * Modification : First commit 29-June-2021
+	 */
+	public void deleteContact()
+	{
+		System.out.print("\nGive a mobile number to deleted associated contact : ");
+		long searchNumber = scannerObject.nextLong();
+		for(int i = 0; i < contactArray.length; i++)
+		{
+			if(contactArray[i].getPhoneNumber() == searchNumber)
+			{
+				contactArray[i] = null;
+				System.out.println("\nContact successfully deleted\n");
+				break;
+			}
+		}
+	}
 }
